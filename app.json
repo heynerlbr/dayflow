@@ -1,0 +1,37 @@
+{
+  "expo": {
+    "name": "dayflow",
+    "slug": "dayflow",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./src/images/acecard.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.heynerbecerra.dayflow"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "31394ef2-37f6-4fff-8bf0-72319faa9210"
+      }
+    },
+    "owner": "heynerbecerra"
+  }
+}
