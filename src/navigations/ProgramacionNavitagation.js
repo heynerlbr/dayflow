@@ -8,7 +8,7 @@ import RegistronDia from "../screens/RegistroprogramacionScreen";
 import DetalleProgramacion from "../screens/DetalleProgramacionScreen";
 
 const Stack = createStackNavigator();
-export default function LoginNavigation() {
+export default function ProgramacionNavigation() {
   return (
     <Stack.Navigator>
       <Stack.Screen

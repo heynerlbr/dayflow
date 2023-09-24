@@ -2,8 +2,8 @@ import { View, Text } from "react-native";
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 
-import LoginScreen from "../screens/Login";
-import PerfilScreen from "../screens/Perfil";
+import LoginScreen from "../screens/LoginScreen";
+import PerfilScreen from "../screens/PerfilScreen";
 
 const Stack = createStackNavigator();
 export default function LoginNavigation() {
@@ -19,12 +19,8 @@ export default function LoginNavigation() {
         component={PerfilScreen}
         options={{ title: "Perfil", headerTransparent: true }}
       />
-      {/* 
-      <Stack.Screen
-        name="register"
-        component={DetallesScreen}
-        options={{ title: "register" }}
-      /> */}
+     
+    
     </Stack.Navigator>
   );
 }

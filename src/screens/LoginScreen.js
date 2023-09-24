@@ -5,32 +5,14 @@ import {
   StyleSheet,
   TextInput,
   Button,
-  Animated,
-  KeyboardAvoidingView,
   Image,
 } from "react-native";
-import { TapGestureHandler, State } from "react-native-gesture-handler";
 import { useNavigation } from "@react-navigation/native";
-
-const Login = () => {
+import { Card } from "react-native-elements";
+const LoginScreen = () => {
   const navigation = useNavigation();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [formVisible, setFormVisible] = useState(false);
-  const [transformAnimation] = useState(new Animated.Value(0));
-
-  const handleTap = () => {
-    Animated.timing(transformAnimation, {
-      toValue: 1,
-      duration: 300,
-      useNativeDriver: true,
-    }).start(() => setFormVisible(true));
-  };
-
-  const translateY = transformAnimation.interpolate({
-    inputRange: [0, 1],
-    outputRange: [0, 1],
-  });
 
   const handleSubmit = () => {
     console.log("Iniciar sesión:", username, password);
@@ -91,48 +73,31 @@ const Login = () => {
       });
   };
 
-  useEffect(() => {
-    handleTap();
-  }, []);
-
   return (
-    <KeyboardAvoidingView style={styles.container} behavior="padding">
-      <TapGestureHandler onHandlerStateChange={handleTap}>
-        <Animated.View
-          style={[styles.overlay, { opacity: transformAnimation }]}
-        >
-          {formVisible && (
-            <Animated.View
-              style={[
-                styles.formContainer,
-                { transform: [{ translateY: translateY }] },
-              ]}
-            >
-              <View style={styles.avatarContainer}>
-                <Image
-                  source={require("../images/acecard.png")}
-                  style={styles.avatar}
-                />
-              </View>
-              <TextInput
-                style={styles.input}
-                placeholder="Nombre de usuario"
-                value={username}
-                onChangeText={setUsername}
-              />
-              <TextInput
-                style={styles.input}
-                placeholder="Contraseña"
-                secureTextEntry
-                value={password}
-                onChangeText={setPassword}
-              />
-              <Button title="Iniciar sesión" onPress={handleSubmit} />
-            </Animated.View>
-          )}
-        </Animated.View>
-      </TapGestureHandler>
-    </KeyboardAvoidingView>
+    <View style={styles.container}>
+       <Card containerStyle={styles.card}>
+      <View style={styles.avatarContainer}>
+        <Image
+          source={require("../images/acecard.png")}
+          style={styles.avatar}
+        />
+      </View>
+      <TextInput
+        style={styles.input}
+        placeholder="Nombre de usuario"
+        value={username}
+        onChangeText={setUsername}
+      />
+      <TextInput
+        style={styles.input}
+        placeholder="Contraseña"
+        secureTextEntry
+        value={password}
+        onChangeText={setPassword}
+      />
+      <Button title="Iniciar sesión" onPress={handleSubmit} />
+      </Card>
+    </View>
   );
 };
 
@@ -141,18 +106,13 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-  },
-  overlay: {
-    ...StyleSheet.absoluteFillObject,
-    backgroundColor: "rgba(0, 0, 0, 0.5)",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  formContainer: {
-    backgroundColor: "white",
-    width: "80%",
     padding: 20,
+  },
+  card: {
+    width: "80%",
     borderRadius: 8,
+    padding: 20,
+    elevation: 2, // Agrega una pequeña sombra
   },
   avatarContainer: {
     alignItems: "center",
@@ -174,4 +134,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Login;
+export default LoginScreen;

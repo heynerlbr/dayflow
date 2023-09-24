@@ -5,8 +5,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 import LoginNavigation from "./LoginNavigation";
 import ProgramacionNavitagation from "./ProgramacionNavitagation";
-import PerfilScreen from "../screens/Perfil";
-import DaysListScreen from "../screens/DaysListScreen";
+
 
 const Tab = createBottomTabNavigator();
 
@@ -14,10 +13,10 @@ const Navigation = () => {
   return (
     <Tab.Navigator>
       <Tab.Screen
-        name="Login"
+        name="Inicio"
         component={LoginNavigation}
         options={{
-          tabBarLabel: "Login",
+          tabBarLabel: "Inicio",
           tabBarIcon: ({ color, size }) => (
             <Icon name="user" size={size} color={color} />
           ),
@@ -33,16 +32,7 @@ const Navigation = () => {
           ),
         }}
       />
-      {/* <Tab.Screen
-        name="Calendario"
-        component={DaysListScreen}
-        options={{
-          tabBarLabel: "Calendario",
-          tabBarIcon: ({ color, size }) => (
-            <Icon name="list" size={size} color={color} />
-          ),
-        }}
-      /> */}
+   
     </Tab.Navigator>
   );
 };

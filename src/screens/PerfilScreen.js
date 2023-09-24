@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { Card, Avatar } from "react-native-elements";
 
-const Perfil = ({ route }) => {
+const PerfilScreen = ({ route }) => {
   const { userProfile } = route.params;
 
   return (
@@ -78,4 +78,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Perfil
+export default PerfilScreen
