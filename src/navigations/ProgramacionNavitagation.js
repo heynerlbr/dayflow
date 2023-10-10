@@ -6,7 +6,7 @@ import DaysListScreen from "../screens/DaysListScreen";
 import ProgramacionDia from "../screens/ProgramacionDia";
 import RegistronDia from "../screens/RegistroprogramacionScreen";
 import DetalleProgramacion from "../screens/DetalleProgramacionScreen";
-
+import FormCreateProgramacion from "../screens/FormCreateProgramacionScreen";
 const Stack = createStackNavigator();
 export default function ProgramacionNavigation() {
   return (
@@ -27,18 +27,19 @@ export default function ProgramacionNavigation() {
         options={{ title: "", headerTransparent: true }}
       />
 
+      <Stack.Screen
+              name="DetalleProgramacion"
+              component={DetalleProgramacion}
+              options={{ title: "", headerTransparent: true }}
+            />
+
 <Stack.Screen
-        name="DetalleProgramacion"
-        component={DetalleProgramacion}
+        name="FormCreateProgramacion"
+        component={FormCreateProgramacion}
         options={{ title: "", headerTransparent: true }}
       />
 
-      {/* 
-      <Stack.Screen
-        name="register"
-        component={DetallesScreen}
-        options={{ title: "register" }}
-      /> */}
+    
     </Stack.Navigator>
   );
 }

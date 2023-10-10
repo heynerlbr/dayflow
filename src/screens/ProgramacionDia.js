@@ -85,14 +85,19 @@ const ProgramacionDia = ({ route }) => {
     </TouchableOpacity>
   );
 
+  const navigateToFormScreen = () => {
+    navigation.navigate("FormCreateProgramacion"); // "FormScreen" es el nombre de la pantalla del formulario
+  };
+
   return (
     <View style={styles.container}>
-      {/* <TouchableOpacity
-        style={styles.registroButton}
-        onPress={handleRegistroPress}
-      >
-        <Text style={styles.registroButtonText}>Registrar Programación</Text>
-      </TouchableOpacity> */}
+      
+
+      <TouchableOpacity onPress={navigateToFormScreen} style={styles.button}>
+        <Text style={styles.buttonText}>Ir al Formulario</Text>
+      </TouchableOpacity>
+
+      
       <FlatList
         data={programacion}
         keyExtractor={(item) => item.id.toString()}
@@ -152,6 +157,16 @@ const styles = StyleSheet.create({
   },
   badgeText: {
     fontSize: 12,
+  },
+  button: {
+    backgroundColor: "blue", // Color de fondo del botón
+    padding: 10, // Espacio alrededor del botón
+    borderRadius: 5, // Bordes redondeados
+    alignSelf: "flex-end", // Alineación a la derecha
+  },
+  buttonText: {
+    color: "white", // Color del texto del botón
+    fontWeight: "bold", // Texto en negrita
   },
 });
 
